@@ -1,3 +1,39 @@
-<p>
-  choice works!
-</p>
+<div class="container">
+  <div class="row" id="agents">
+    <form>
+      <div class="row">
+        <div class="col s12 m6 l3" *ngFor="let agent of agents">
+            <div class="card small">
+                <div class="card-image" style="height: 20%">
+                  <img style="max-width:20%" [src]="logoCheck(agent.urlsToLogos.small)" alt="logos">
+                </div>
+                <div class="card-stackend">
+                    <div class="card-content">
+                      <h5>{{ agent.name }}</h5>
+                      <p>{{ agent.description | limit }}</p>
+                    </div>
+                    <div class="card-action">
+                      <div class="switch">
+                        <label>
+                          Off
+                          <input type="checkbox" name="agent.id" [checked]="sources[agent.id]"
+                                 [value]="sources[agent.id]" (change)="select(agent.id)">
+                          <span class="lever"></span>
+                        </label>
+                      </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+        <div class="col s12 center-align">
+            <a class="waves-effect waves-light btn red darken-3" (click)="gotoNews()"
+              [ngClass]="{disabled: !atLeastOne()}"><i class="material-icons right">send</i>
+              Continue
+            </a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

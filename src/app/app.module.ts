@@ -14,6 +14,9 @@ import { ChoiceComponent } from './choice/choice.component';
 import { NewsComponent } from './news/news.component';
 import { LimitPipe } from './limit.pipe';
 
+import { NewsApiService } from './news-api.service';
+import { LocalStorageService } from './local-storage.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,7 @@ import { LimitPipe } from './limit.pipe';
     AppRoutingModule,
     MaterializeModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ NewsApiService, LocalStorageService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
